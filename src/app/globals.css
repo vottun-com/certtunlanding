@@ -1,26 +1,147 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-outfit: "Outfit", sans-serif;
+  --font-dm-sans: "DM Sans", sans-serif;
+
+  --color-bg-primary: #06070D;
+  --color-bg-secondary: #0C0D16;
+  --color-bg-card: rgba(15, 16, 28, 0.6);
+  --color-bg-card-hover: rgba(20, 22, 38, 0.8);
+
+  --color-cyan: #2FC1FF;
+  --color-blue: #0066FF;
+  --color-amber: #F5A623;
+
+  --color-text-primary: #F0F2F5;
+  --color-text-secondary: #8B8FA3;
+  --color-text-muted: #5A5E73;
+
+  --color-border: rgba(47, 193, 255, 0.1);
+  --color-border-hover: rgba(47, 193, 255, 0.25);
+  --color-glow: rgba(47, 193, 255, 0.15);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-text-muted);
+  border-radius: 3px;
+}
+
+/* Selection */
+::selection {
+  background: rgba(47, 193, 255, 0.3);
+  color: white;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-dm-sans);
+  overflow-x: hidden;
+}
+
+/* Grid background pattern */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(47, 193, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(47, 193, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Animated gradient border */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.gradient-border {
+  position: relative;
+  border-radius: 16px;
+  background: var(--color-bg-card);
+  backdrop-filter: blur(20px);
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 17px;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--angle),
+    transparent 40%,
+    var(--color-cyan) 50%,
+    transparent 60%
+  );
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: rotate-border 4s linear infinite;
+}
+
+@keyframes rotate-border {
+  to { --angle: 360deg; }
+}
+
+/* Glow effect */
+.glow {
+  box-shadow:
+    0 0 20px rgba(47, 193, 255, 0.1),
+    0 0 60px rgba(47, 193, 255, 0.05);
+}
+
+.glow-strong {
+  box-shadow:
+    0 0 30px rgba(47, 193, 255, 0.2),
+    0 0 80px rgba(47, 193, 255, 0.1),
+    0 0 120px rgba(47, 193, 255, 0.05);
+}
+
+/* Glass card */
+.glass {
+  background: rgba(12, 13, 22, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--color-border);
+}
+
+.glass:hover {
+  border-color: var(--color-border-hover);
+  background: rgba(15, 16, 28, 0.8);
+}
+
+/* Noise texture overlay */
+.noise::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 50;
+}
+
+/* Section divider */
+.section-glow {
+  position: relative;
+}
+.section-glow::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-cyan), transparent);
+  opacity: 0.3;
 }

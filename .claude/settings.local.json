@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:certtun.com)",
+      "Bash(npx create-next-app@latest:*)",
+      "Bash(xcopy \"c:\\\\Users\\\\smias\\\\Documents\\\\DEVELOPEMENT\\\\certtunlanding-temp\\\\*\" \"c:\\\\Users\\\\smias\\\\Documents\\\\DEVELOPEMENT\\\\certtunlanding\"\" /E /Y /I 2>&1 && rmdir /S /Q \"c:UserssmiasDocumentsDEVELOPEMENTcerttunlanding-temp \")",
+      "mcp__plugin_context7_context7__resolve-library-id"
+    ]
+  }
+}
