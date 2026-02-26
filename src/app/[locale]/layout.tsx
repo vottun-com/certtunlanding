@@ -6,15 +6,15 @@ import type { Metadata } from "next";
 import "../globals.css";
 
 export const metadata: Metadata = {
-  title: "Certtun — Blockchain-Verified Digital Certificates",
+  title: "Certtun — Digital Credentials That Build Trust",
   description:
-    "Issue tamper-proof digital credentials that your students receive instantly in their personalized wallet. Powered by blockchain technology.",
+    "Issue, manage, and verify digital certificates and badges. Trusted by 200+ institutions worldwide. Powered by blockchain verification.",
   keywords: [
     "digital certificates",
-    "blockchain verification",
     "digital credentials",
-    "digital wallet",
+    "digital badges",
     "certificate management",
+    "blockchain verification",
   ],
 };
 
@@ -41,11 +41,11 @@ export default async function LocaleLayout({ children, params }: Props) {
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className="font-[--font-dm-sans] antialiased noise">
+      <body className="font-[family-name:var(--font-body)] antialiased">
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>

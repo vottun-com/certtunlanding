@@ -4,7 +4,14 @@
       "WebFetch(domain:certtun.com)",
       "Bash(npx create-next-app@latest:*)",
       "Bash(xcopy \"c:\\\\Users\\\\smias\\\\Documents\\\\DEVELOPEMENT\\\\certtunlanding-temp\\\\*\" \"c:\\\\Users\\\\smias\\\\Documents\\\\DEVELOPEMENT\\\\certtunlanding\"\" /E /Y /I 2>&1 && rmdir /S /Q \"c:UserssmiasDocumentsDEVELOPEMENTcerttunlanding-temp \")",
-      "mcp__plugin_context7_context7__resolve-library-id"
+      "mcp__plugin_context7_context7__resolve-library-id",
+      "WebFetch(domain:www.accredible.com)",
+      "WebFetch(domain:www.credly.com)",
+      "WebFetch(domain:www.pok.tech)",
+      "WebFetch(domain:www.givemycertificate.com)",
+      "WebFetch(domain:www.virtualbadge.io)",
+      "WebFetch(domain:info.credly.com)",
+      "WebFetch(domain:givemycertificate.com)"
     ]
   }
 }

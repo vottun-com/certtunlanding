@@ -14,17 +14,17 @@ export default function Showcase() {
   ];
 
   return (
-    <section id="showcase" className="relative py-28">
+    <section id="showcase" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-14">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-cyan)]/5 border border-[var(--color-cyan)]/15 mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-primary)]/5 border border-[var(--color-primary)]/10 mb-5"
           >
-            <span className="text-xs text-[var(--color-cyan)] font-medium">
+            <span className="text-xs text-[var(--color-primary)] font-semibold">
               {t("badge")}
             </span>
           </motion.div>
@@ -33,7 +33,7 @@ export default function Showcase() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-[family-name:var(--font-outfit)] text-4xl md:text-5xl font-bold text-white mb-4"
+            className="font-[family-name:var(--font-heading)] text-3xl md:text-4xl font-bold text-[var(--color-text)] mb-4"
           >
             {t("title")}
           </motion.h2>
@@ -50,43 +50,40 @@ export default function Showcase() {
 
         {/* Dashboard mockup */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.7 }}
           className="relative mb-20"
         >
-          {/* Glow behind */}
-          <div className="absolute -inset-4 bg-gradient-to-b from-[var(--color-cyan)]/10 to-transparent rounded-3xl blur-2xl" />
-
-          <div className="relative rounded-2xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-bg-secondary)]">
+          <div className="rounded-2xl overflow-hidden border border-[var(--color-border)] bg-white shadow-xl shadow-black/5">
             {/* Browser chrome */}
-            <div className="flex items-center gap-2 px-4 py-3 border-b border-[var(--color-border)] bg-[var(--color-bg-card)]">
+            <div className="flex items-center gap-2 px-4 py-3 border-b border-[var(--color-border)] bg-[var(--color-bg-soft)]">
               <div className="flex gap-1.5">
-                <div className="w-3 h-3 rounded-full bg-red-500/60" />
-                <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
-                <div className="w-3 h-3 rounded-full bg-green-500/60" />
+                <div className="w-3 h-3 rounded-full bg-[#FF5F57]" />
+                <div className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
+                <div className="w-3 h-3 rounded-full bg-[#28C840]" />
               </div>
               <div className="flex-1 flex justify-center">
-                <div className="px-4 py-1 rounded-md bg-[var(--color-bg-primary)] border border-[var(--color-border)] text-xs text-[var(--color-text-muted)] font-mono">
+                <div className="px-4 py-1 rounded-lg bg-white border border-[var(--color-border)] text-xs text-[var(--color-text-muted)] font-mono">
                   app.certtun.com/dashboard
                 </div>
               </div>
             </div>
 
             {/* Dashboard content */}
-            <div className="p-6 grid grid-cols-12 gap-4 min-h-[400px]">
+            <div className="p-6 grid grid-cols-12 gap-4 min-h-[380px] bg-[var(--color-bg-soft)]">
               {/* Sidebar */}
               <div className="col-span-3 hidden md:block">
-                <div className="space-y-2">
+                <div className="space-y-1">
                   {["Dashboard", "Certificates", "Templates", "Recipients", "Analytics", "Settings"].map(
                     (item, i) => (
                       <div
                         key={item}
-                        className={`px-3 py-2 rounded-lg text-xs ${
+                        className={`px-3 py-2 rounded-lg text-xs font-medium ${
                           i === 0
-                            ? "bg-[var(--color-cyan)]/10 text-[var(--color-cyan)] border border-[var(--color-cyan)]/20"
-                            : "text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)]"
+                            ? "bg-[var(--color-primary)] text-white"
+                            : "text-[var(--color-text-muted)] hover:bg-white hover:text-[var(--color-text-secondary)]"
                         }`}
                       >
                         {item}
@@ -106,68 +103,53 @@ export default function Showcase() {
                     { label: "Verified", value: "98.7%", change: "+0.3%" },
                     { label: "Active Wallets", value: "9,521", change: "+15%" },
                   ].map((stat) => (
-                    <div
-                      key={stat.label}
-                      className="p-3 rounded-lg bg-[var(--color-bg-card)] border border-[var(--color-border)]"
-                    >
-                      <div className="text-[10px] text-[var(--color-text-muted)] mb-1">
-                        {stat.label}
-                      </div>
-                      <div className="text-lg font-bold text-white font-[family-name:var(--font-outfit)]">
-                        {stat.value}
-                      </div>
-                      <div className="text-[10px] text-emerald-400">
-                        {stat.change}
-                      </div>
+                    <div key={stat.label} className="p-3 rounded-lg bg-white border border-[var(--color-border)]">
+                      <div className="text-[10px] text-[var(--color-text-muted)] mb-1">{stat.label}</div>
+                      <div className="text-lg font-bold text-[var(--color-text)] font-[family-name:var(--font-heading)]">{stat.value}</div>
+                      <div className="text-[10px] text-emerald-600 font-medium">{stat.change}</div>
                     </div>
                   ))}
                 </div>
 
-                {/* Chart area placeholder */}
-                <div className="p-4 rounded-lg bg-[var(--color-bg-card)] border border-[var(--color-border)] h-48 flex items-end gap-1">
+                {/* Chart area */}
+                <div className="p-4 rounded-lg bg-white border border-[var(--color-border)] h-44 flex items-end gap-1">
                   {Array.from({ length: 24 }, (_, i) => (
                     <div
                       key={i}
-                      className="flex-1 rounded-t bg-gradient-to-t from-[var(--color-cyan)]/20 to-[var(--color-cyan)]/60"
+                      className="flex-1 rounded-t bg-[var(--color-primary)]"
                       style={{
                         height: `${20 + Math.sin(i * 0.5) * 30 + Math.random() * 30}%`,
+                        opacity: 0.2 + (i / 24) * 0.6,
                       }}
                     />
                   ))}
                 </div>
 
-                {/* Recent certificates table */}
-                <div className="rounded-lg bg-[var(--color-bg-card)] border border-[var(--color-border)] overflow-hidden">
-                  <div className="px-4 py-2 border-b border-[var(--color-border)]">
-                    <span className="text-xs font-medium text-[var(--color-text-secondary)]">
+                {/* Recent certificates */}
+                <div className="rounded-lg bg-white border border-[var(--color-border)] overflow-hidden">
+                  <div className="px-4 py-2.5 border-b border-[var(--color-border)] bg-[var(--color-bg-soft)]">
+                    <span className="text-xs font-semibold text-[var(--color-text-secondary)]">
                       Recent Certificates
                     </span>
                   </div>
-                  {[1, 2, 3].map((row) => (
-                    <div
-                      key={row}
-                      className="px-4 py-2.5 flex items-center justify-between border-b border-[var(--color-border)] last:border-0"
-                    >
+                  {[
+                    { name: "Web Development Bootcamp", email: "john@example.com", initials: "JD" },
+                    { name: "Data Science Certificate", email: "maria@example.com", initials: "MS" },
+                    { name: "UX Design Fundamentals", email: "alex@example.com", initials: "AK" },
+                  ].map((row) => (
+                    <div key={row.email} className="px-4 py-2.5 flex items-center justify-between border-b border-[var(--color-border)] last:border-0">
                       <div className="flex items-center gap-3">
-                        <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[var(--color-cyan)]/20 to-[var(--color-blue)]/20 flex items-center justify-center">
-                          <span className="text-[10px] text-[var(--color-cyan)]">
-                            JS
-                          </span>
+                        <div className="w-7 h-7 rounded-full bg-[var(--color-primary-50)] flex items-center justify-center">
+                          <span className="text-[10px] font-semibold text-[var(--color-primary)]">{row.initials}</span>
                         </div>
                         <div>
-                          <div className="text-xs text-white">
-                            Web Development Bootcamp
-                          </div>
-                          <div className="text-[10px] text-[var(--color-text-muted)]">
-                            john@example.com
-                          </div>
+                          <div className="text-xs font-medium text-[var(--color-text)]">{row.name}</div>
+                          <div className="text-[10px] text-[var(--color-text-muted)]">{row.email}</div>
                         </div>
                       </div>
-                      <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-500/10">
-                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                        <span className="text-[10px] text-emerald-400">
-                          Verified
-                        </span>
+                      <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50">
+                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                        <span className="text-[10px] font-medium text-emerald-700">Verified</span>
                       </div>
                     </div>
                   ))}
@@ -178,7 +160,7 @@ export default function Showcase() {
         </motion.div>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, i) => (
             <motion.div
               key={stat.label}
@@ -188,7 +170,7 @@ export default function Showcase() {
               transition={{ delay: i * 0.1 }}
               className="text-center"
             >
-              <div className="font-[family-name:var(--font-outfit)] text-4xl md:text-5xl font-bold bg-gradient-to-r from-[var(--color-cyan)] to-[var(--color-blue)] bg-clip-text text-transparent mb-2">
+              <div className="font-[family-name:var(--font-heading)] text-4xl md:text-5xl font-extrabold text-[var(--color-primary)] mb-2">
                 {stat.value}
               </div>
               <div className="text-sm text-[var(--color-text-secondary)]">

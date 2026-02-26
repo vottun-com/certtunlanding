@@ -8,12 +8,9 @@ const features = [
     titleKey: "blockchain" as const,
     descKey: "blockchainDesc" as const,
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-cyan)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="1" y="1" width="9" height="9" rx="1" />
-        <rect x="14" y="1" width="9" height="9" rx="1" />
-        <rect x="1" y="14" width="9" height="9" rx="1" />
-        <rect x="14" y="14" width="9" height="9" rx="1" />
-        <path d="M10 5.5h4M5.5 10v4M18.5 10v4M10 18.5h4" />
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        <path d="M9 12l2 2 4-4" />
       </svg>
     ),
   },
@@ -21,12 +18,10 @@ const features = [
     titleKey: "branding" as const,
     descKey: "brandingDesc" as const,
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-cyan)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="13.5" cy="6.5" r="2.5" />
-        <path d="M17.6 9.5c-.3-.2-.7-.4-1.1-.5" />
-        <circle cx="10.5" cy="6.5" r="2.5" />
-        <path d="M7 21v-2a4 4 0 014-4h2a4 4 0 014 4v2" />
-        <path d="M12 3v2" />
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 20V10" />
+        <path d="M18 20V4" />
+        <path d="M6 20v-4" />
       </svg>
     ),
   },
@@ -34,10 +29,10 @@ const features = [
     titleKey: "bulk" as const,
     descKey: "bulkDesc" as const,
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-cyan)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2" />
         <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
-        <path d="M12 11l4 4M12 11l-4 4M12 11v8" />
+        <path d="M9 14l2 2 4-4" />
       </svg>
     ),
   },
@@ -45,10 +40,9 @@ const features = [
     titleKey: "api" as const,
     descKey: "apiDesc" as const,
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-cyan)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <polyline points="16 18 22 12 16 6" />
         <polyline points="8 6 2 12 8 18" />
-        <line x1="14" y1="4" x2="10" y2="20" />
       </svg>
     ),
   },
@@ -56,11 +50,10 @@ const features = [
     titleKey: "analytics" as const,
     descKey: "analyticsDesc" as const,
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-cyan)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M21 12c0 5-4 9-9 9s-9-4-9-9 4-9 9-9" />
-        <path d="M21 3l-9 9" />
-        <path d="M21 3h-6" />
-        <path d="M21 3v6" />
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <line x1="18" y1="20" x2="18" y2="10" />
+        <line x1="12" y1="20" x2="12" y2="4" />
+        <line x1="6" y1="20" x2="6" y2="14" />
       </svg>
     ),
   },
@@ -68,7 +61,7 @@ const features = [
     titleKey: "multilang" as const,
     descKey: "multilangDesc" as const,
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-cyan)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="10" />
         <line x1="2" y1="12" x2="22" y2="12" />
         <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
@@ -81,20 +74,17 @@ export default function Features() {
   const t = useTranslations("features");
 
   return (
-    <section id="features" className="relative py-28 section-glow">
-      {/* Background accent */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[var(--color-cyan)]/3 rounded-full blur-[120px]" />
-
-      <div className="relative max-w-7xl mx-auto px-6">
+    <section id="features" className="py-24 bg-[var(--color-bg-soft)]">
+      <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-cyan)]/5 border border-[var(--color-cyan)]/15 mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-primary)]/5 border border-[var(--color-primary)]/10 mb-5"
           >
-            <span className="text-xs text-[var(--color-cyan)] font-medium">
+            <span className="text-xs text-[var(--color-primary)] font-semibold">
               {t("badge")}
             </span>
           </motion.div>
@@ -103,7 +93,7 @@ export default function Features() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-[family-name:var(--font-outfit)] text-4xl md:text-5xl font-bold text-white mb-4"
+            className="font-[family-name:var(--font-heading)] text-3xl md:text-4xl font-bold text-[var(--color-text)] mb-4"
           >
             {t("title")}
           </motion.h2>
@@ -123,26 +113,22 @@ export default function Features() {
           {features.map((feature, i) => (
             <motion.div
               key={feature.titleKey}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
-              className="group relative rounded-2xl p-6 glass hover:glow transition-all duration-500 cursor-default"
+              transition={{ delay: i * 0.08, duration: 0.5 }}
+              className="group bg-white rounded-xl p-6 border border-[var(--color-border)] hover:border-[var(--color-primary)]/20 hover:shadow-lg hover:shadow-[var(--color-primary)]/5 transition-all duration-300"
             >
-              {/* Icon */}
-              <div className="w-12 h-12 rounded-xl bg-[var(--color-cyan)]/5 border border-[var(--color-cyan)]/10 flex items-center justify-center mb-5 group-hover:bg-[var(--color-cyan)]/10 group-hover:border-[var(--color-cyan)]/20 transition-all duration-500">
+              <div className="w-12 h-12 rounded-xl bg-[var(--color-primary-50)] flex items-center justify-center mb-5 group-hover:bg-[var(--color-primary-100)] transition-colors">
                 {feature.icon}
               </div>
 
-              <h3 className="font-[family-name:var(--font-outfit)] text-lg font-semibold text-white mb-2">
+              <h3 className="font-[family-name:var(--font-heading)] text-lg font-semibold text-[var(--color-text)] mb-2">
                 {t(feature.titleKey)}
               </h3>
               <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
                 {t(feature.descKey)}
               </p>
-
-              {/* Hover corner accent */}
-              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-[var(--color-cyan)]/0 to-transparent rounded-tr-2xl opacity-0 group-hover:opacity-100 group-hover:from-[var(--color-cyan)]/5 transition-all duration-500" />
             </motion.div>
           ))}
         </div>

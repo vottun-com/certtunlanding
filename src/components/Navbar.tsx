@@ -37,31 +37,22 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         scrolled
-          ? "bg-[#06070D]/80 backdrop-blur-xl border-b border-[var(--color-border)]"
+          ? "bg-white/90 backdrop-blur-md shadow-sm border-b border-[var(--color-border)]"
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 h-[72px] flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[var(--color-cyan)] to-[var(--color-blue)] flex items-center justify-center">
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="white"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
+        <a href="#" className="flex items-center gap-2.5 group">
+          <div className="w-9 h-9 rounded-xl bg-[var(--color-primary)] flex items-center justify-center">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
               <path d="M9 12l2 2 4-4" />
             </svg>
           </div>
-          <span className="font-[family-name:var(--font-outfit)] text-xl font-bold tracking-tight text-white group-hover:text-[var(--color-cyan)] transition-colors">
+          <span className="font-[family-name:var(--font-heading)] text-xl font-bold tracking-tight text-[var(--color-text)]">
             Certtun
           </span>
         </a>
@@ -72,44 +63,48 @@ export default function Navbar() {
             <a
               key={item.href}
               href={item.href}
-              className="text-sm text-[var(--color-text-secondary)] hover:text-white transition-colors relative group"
+              className="text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors"
             >
               {item.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-px bg-[var(--color-cyan)] group-hover:w-full transition-all duration-300" />
             </a>
           ))}
         </div>
 
         {/* Right side */}
-        <div className="hidden lg:flex items-center gap-4">
+        <div className="hidden lg:flex items-center gap-3">
           {/* Language switcher */}
-          <div className="flex items-center bg-[var(--color-bg-card)] rounded-full p-1 border border-[var(--color-border)]">
+          <div className="flex items-center bg-[var(--color-bg-muted)] rounded-lg p-0.5">
             <button
               onClick={() => switchLocale("en")}
-              className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
+              className={`px-2.5 py-1.5 rounded-md text-xs font-medium transition-all ${
                 locale === "en"
-                  ? "bg-[var(--color-cyan)] text-[var(--color-bg-primary)]"
-                  : "text-[var(--color-text-secondary)] hover:text-white"
+                  ? "bg-white text-[var(--color-text)] shadow-sm"
+                  : "text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)]"
               }`}
             >
               EN
             </button>
             <button
               onClick={() => switchLocale("es")}
-              className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
+              className={`px-2.5 py-1.5 rounded-md text-xs font-medium transition-all ${
                 locale === "es"
-                  ? "bg-[var(--color-cyan)] text-[var(--color-bg-primary)]"
-                  : "text-[var(--color-text-secondary)] hover:text-white"
+                  ? "bg-white text-[var(--color-text)] shadow-sm"
+                  : "text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)]"
               }`}
             >
               ES
             </button>
           </div>
 
-          {/* CTA */}
           <a
             href="#pricing"
-            className="relative px-5 py-2.5 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-[var(--color-cyan)] to-[var(--color-blue)] hover:shadow-[0_0_30px_rgba(47,193,255,0.3)] transition-all duration-300 hover:scale-105"
+            className="px-5 py-2.5 rounded-lg text-sm font-semibold text-[var(--color-primary)] border border-[var(--color-primary)]/20 hover:bg-[var(--color-primary-50)] transition-all"
+          >
+            {t("bookDemo")}
+          </a>
+          <a
+            href="#pricing"
+            className="px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] transition-all shadow-sm"
           >
             {t("getStarted")}
           </a>
@@ -120,15 +115,9 @@ export default function Navbar() {
           onClick={() => setMobileOpen(!mobileOpen)}
           className="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5"
         >
-          <span
-            className={`w-5 h-px bg-white transition-all ${mobileOpen ? "rotate-45 translate-y-1" : ""}`}
-          />
-          <span
-            className={`w-5 h-px bg-white transition-all ${mobileOpen ? "opacity-0" : ""}`}
-          />
-          <span
-            className={`w-5 h-px bg-white transition-all ${mobileOpen ? "-rotate-45 -translate-y-1" : ""}`}
-          />
+          <span className={`w-5 h-0.5 bg-[var(--color-text)] transition-all ${mobileOpen ? "rotate-45 translate-y-1" : ""}`} />
+          <span className={`w-5 h-0.5 bg-[var(--color-text)] transition-all ${mobileOpen ? "opacity-0" : ""}`} />
+          <span className={`w-5 h-0.5 bg-[var(--color-text)] transition-all ${mobileOpen ? "-rotate-45 -translate-y-1" : ""}`} />
         </button>
       </div>
 
@@ -140,37 +129,33 @@ export default function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden overflow-hidden bg-[var(--color-bg-secondary)]/95 backdrop-blur-xl border-b border-[var(--color-border)]"
+            className="lg:hidden overflow-hidden bg-white border-b border-[var(--color-border)]"
           >
-            <div className="px-6 py-6 flex flex-col gap-4">
+            <div className="px-6 py-6 flex flex-col gap-3">
               {navItems.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileOpen(false)}
-                  className="text-[var(--color-text-secondary)] hover:text-white transition-colors py-2"
+                  className="text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors py-2 text-sm font-medium"
                 >
                   {item.label}
                 </a>
               ))}
               <div className="flex items-center gap-3 pt-4 border-t border-[var(--color-border)]">
-                <div className="flex items-center bg-[var(--color-bg-card)] rounded-full p-1 border border-[var(--color-border)]">
+                <div className="flex items-center bg-[var(--color-bg-muted)] rounded-lg p-0.5">
                   <button
                     onClick={() => switchLocale("en")}
-                    className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
-                      locale === "en"
-                        ? "bg-[var(--color-cyan)] text-[var(--color-bg-primary)]"
-                        : "text-[var(--color-text-secondary)]"
+                    className={`px-2.5 py-1.5 rounded-md text-xs font-medium transition-all ${
+                      locale === "en" ? "bg-white text-[var(--color-text)] shadow-sm" : "text-[var(--color-text-muted)]"
                     }`}
                   >
                     EN
                   </button>
                   <button
                     onClick={() => switchLocale("es")}
-                    className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
-                      locale === "es"
-                        ? "bg-[var(--color-cyan)] text-[var(--color-bg-primary)]"
-                        : "text-[var(--color-text-secondary)]"
+                    className={`px-2.5 py-1.5 rounded-md text-xs font-medium transition-all ${
+                      locale === "es" ? "bg-white text-[var(--color-text)] shadow-sm" : "text-[var(--color-text-muted)]"
                     }`}
                   >
                     ES
@@ -178,7 +163,7 @@ export default function Navbar() {
                 </div>
                 <a
                   href="#pricing"
-                  className="flex-1 text-center px-5 py-2.5 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-[var(--color-cyan)] to-[var(--color-blue)]"
+                  className="flex-1 text-center px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-[var(--color-primary)]"
                 >
                   {t("getStarted")}
                 </a>
